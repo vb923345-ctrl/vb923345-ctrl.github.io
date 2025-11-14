@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Quiz Challenge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .quiz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .quiz-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 25px 20px;
+            border-radius: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
+        }
+
+        .quiz-button:hover::before {
+            left: 100%;
+        }
+
+        .quiz-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .quiz-button:active {
+            transform: translateY(-2px);
+        }
+
+        .quiz-number {
+            display: block;
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .quiz-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .icon {
+            font-size: 1.5em;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Ultimate Quiz Challenge</h1>
+            <p>Test your knowledge with our exciting quizzes!</p>
+            <p style="margin-top: 10px; font-size: 0.95em;">Choose a quiz below to get started</p>
+        </div>
+
+        <div class="quiz-grid">
+            <button class="quiz-button" onclick="goToQuiz('https://otieu.com/4/10189081')">
+                <span class="quiz-number">Quiz 1</span>
+                <span class="icon">🧠</span> Brain Teaser
+            </button>
+
+            <button class="quiz-button" onclick="goToQuiz('https://otieu.com/4/10189079')">
+                <span class="quiz-number">Quiz 2</span>
+                <span class="icon">🌍</span> World Facts
+            </button>
+
+            <button class="quiz-button" onclick="goToQuiz('https://otieu.com/4/10189078')">
+                <span class="quiz-number">Quiz 3</span>
+                <span class="icon">🎬</span> Movie Magic
+            </button>
+
+            <button class="quiz-button" onclick="goToQuiz('https://otieu.com/4/10189077')">
+                <span class="quiz-number">Quiz 4</span>
+                <span class="icon">🎵</span> Music Trivia
+            </button>
+
+            <button class="quiz-button" onclick="goToQuiz('https://otieu.com/4/10189076')">
+                <span class="quiz-number">Quiz 5</span>
+                <span class="icon">🔬</span> Science Quiz
+            </button>
+
+            <button class="quiz-button" onclick="goToQuiz('https://otieu.com/4/10189068')">
+                <span class="quiz-number">Quiz 6</span>
+                <span class="icon">📚</span> Literature
+            </button>
+
+            <button class="quiz-button" onclick="goToQuiz('https://otieu.com/4/10189073')">
+                <span class="quiz-number">Quiz 7</span>
+                <span class="icon">⚽</span> Sports Arena
+            </button>
+
+            <button class="quiz-button" onclick="goToQuiz('https://otieu.com/4/10189069')">
+                <span class="quiz-number">Quiz 8</span>
+                <span class="icon">🍕</span> Food & Drink
+            </button>
+
+            <button class="quiz-button" onclick="goToQuiz('https://otieu.com/4/10189075')">
+                <span class="quiz-number">Quiz 9</span>
+                <span class="icon">🏛️</span> History Hub
+            </button>
+
+            <button class="quiz-button" onclick="goToQuiz('https://otieu.com/4/10189074')">
+                <span class="quiz-number">Quiz 10</span>
+                <span class="icon">💻</span> Tech Master
+            </button>
+        </div>
+
+        <div class="footer">
+            <p>🏆 Challenge yourself and have fun!</p>
+        </div>
+    </div>
+
+    <script>
+        function goToQuiz(url) {
+            // Open in new tab - more reliable for ad network links
+            window.open(url, '_blank');
+        }
+
+        // Add smooth entrance animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.quiz-button');
+            buttons.forEach((button, index) => {
+                button.style.opacity = '0';
+                button.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    button.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    button.style.opacity = '1';
+                    button.style.transform = 'translateY(0)';
+                }, index * 50);
+            });
+        });
+    </script>
+</body>
+</html>
